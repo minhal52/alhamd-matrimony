@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AL HAMD Matrimony</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  color: #333;
+  line-height: 1.6;
+  background: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #d4af37, #f7d774);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d4af37;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1605379399642-870262d3d171?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center/cover;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem;
+  background: linear-gradient(45deg, #d4af37, #f7d774);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Sections */
+.section {
+  padding: 4rem 0;
+}
+
+.bg-light {
+  background: #f9f9f9;
+}
+
+.highlight {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #d4af37, #f7d774);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grids */
+.grid-4, .grid-3 {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card .icon {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+/* Membership Plans */
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.plan-list li {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.plan-list i {
+  color: #d4af37;
+  margin-right: 8px;
+}
+
+.highlight-plan {
+  border: 2px solid #d4af37;
+  background: linear-gradient(to bottom, #fff8e1, #ffffff);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Forms */
+.form input, .form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.form button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #fff;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-flex">
+      <h1 class="logo">AL HAMD Matrimony</h1>
+      <nav>
+        <ul class="nav-links" id="mobile-menu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#plans">Plans</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" id="menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="container text-center">
+      <h2 class="highlight">Where Nikah Begins with AL HAMD</h2>
+      <p>Personalised, faith-based matchmaking — face-to-face support and community-based connections.</p>
+      <a href="#register" class="btn-primary">Get Started</a>
+      <a href="#services" class="btn-primary">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section bg-light">
+    <div class="container text-center">
+      <h2 class="highlight">Our Services</h2>
+      <div class="grid-4">
+        <div class="card reveal">
+          <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Matchmaking Service</h3>
+          <p>Curated matches based on values, compatibility and family preferences.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><i class="fas fa-star"></i></div>
+          <h3>Premium Listings</h3>
+          <p>Priority suggestions and highlighted profiles for faster outcomes.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><i class="fas fa-comments"></i></div>
+          <h3>Counseling & Guidance</h3>
+          <p>Matrimonial counseling, etiquette and family facilitation.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><i class="fas fa-ring"></i></div>
+          <h3>Wedding Consultation</h3>
+          <p>Seasonal and personalized wedding advisory services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Plans -->
+  <section id="plans" class="section">
+    <div class="container text-center">
+      <h2 class="highlight">Membership Plans</h2>
+      <div class="grid-3">
+        <div class="card reveal">
+          <h3>Standard</h3>
+          <h4 class="plan-title">Nikah Connect</h4>
+          <ul class="plan-list">
+            <li><i class="fas fa-check"></i> Curated matches</li>
+            <li><i class="fas fa-check"></i> Basic support</li>
+            <li><i class="fas fa-check"></i> Privacy assured</li>
+          </ul>
+          <a href="#register" class="btn-primary">Get Started</a>
+        </div>
+        <div class="card highlight-plan reveal">
+          <h3>Premium</h3>
+          <h4 class="plan-title">Blessed Match</h4>
+          <ul class="plan-list">
+            <li><i class="fas fa-check"></i> Priority matchmaking</li>
+            <li><i class="fas fa-check"></i> Dedicated coordinator</li>
+            <li><i class="fas fa-check"></i> Highlighted listing</li>
+          </ul>
+          <a href="#register" class="btn-primary">Choose Premium</a>
+        </div>
+        <div class="card reveal">
+          <h3>Elite</h3>
+          <h4 class="plan-title">Barakah Elite</h4>
+          <ul class="plan-list">
+            <li><i class="fas fa-check"></i> Bespoke concierge search</li>
+            <li><i class="fas fa-check"></i> Hand-held meetings</li>
+            <li><i class="fas fa-check"></i> Discreet introductions</li>
+          </ul>
+          <a href="#register" class="btn-primary">Apply for Elite Plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Registration -->
+  <section id="contact" class="section bg-light">
+    <div class="container text-center">
+      <h2 class="highlight">Contact Us</h2>
+      <form class="form reveal">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Phone Number" required>
+        <textarea placeholder="Message"></textarea>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <p>© 2025 AL HAMD Matrimony | #205, 2nd Floor, Business Park, Bejai, Mangalore 575004</p>
+      <p>Pre-marriage counselling available free of cost</p>
+    </div>
+  </footer>
+<script>
+    // Mobile menu toggle with open/close icon
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const menuIcon = menuBtn.querySelector("i");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("show");
+
+  if (mobileMenu.classList.contains("show")) {
+    menuIcon.classList.remove("fa-bars");
+    menuIcon.classList.add("fa-times");
+  } else {
+    menuIcon.classList.remove("fa-times");
+    menuIcon.classList.add("fa-bars");
+  }
+});
+
+// Form submission demo
+const form = document.querySelector(".form");
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Thank you for registering! Our team will contact you soon.");
+    form.reset();
+  });
+}
+
+// Scroll Reveal Animation
+const srElements = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+  srElements.forEach((el) => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+</script>
+  <script src="script.js"></script>
+</body>
+</html>
